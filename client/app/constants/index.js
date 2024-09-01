@@ -1,7 +1,7 @@
 export const API_URL = process.env.API_URL;
 
 export const SOCKET_URL =
-  window.location.host.indexOf('https://icart.tn') >= 0
+  window.location.host.indexOf('icart.tn') >= 0
     ? 'https://icart.tn'
     : window.location.host;
 
