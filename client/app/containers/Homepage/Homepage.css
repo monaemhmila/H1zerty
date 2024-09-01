@@ -1,0 +1,153 @@
+.hero-section {
+  background: transparent;
+  padding: 20px 0;
+}
+
+.qr-code-img {
+  width: 260px;
+  height: auto;
+}
+
+.info-section {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+}
+
+.info-icon {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.service-item {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.service-item .service-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.service-item h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.testimonials {
+  padding: 60px 0;
+  color: #333;
+}
+
+.testimonials h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.testimonial-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.testimonial-card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.testimonial-card .name {
+  font-weight: bold;
+}
+
+.testimonial-card .title {
+  font-size: 14px;
+  color: #777;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e3e3e3;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-button {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+}
+
+.faq-icon {
+  margin-right: 10px;
+  color: #6c757d;
+}
+
+.faq-toggle-icon {
+  color: #6c757d;
+}
+
+.section-container {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  width: 250px;
+  text-align: left;
+}
