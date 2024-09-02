@@ -15,10 +15,10 @@ const ComingSoon = () => {
       const now = new Date().getTime();
       const distance = countdownDate - now;
 
-      setDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
-      setHours(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-      setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-      setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+      setDays(2);
+    setHours(Math.floor(distance / (1000 * 60 * 60) % 24));
+    setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+    setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
 
       if (distance < 0) {
         clearInterval(interval);
