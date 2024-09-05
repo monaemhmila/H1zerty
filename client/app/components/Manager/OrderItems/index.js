@@ -118,21 +118,21 @@ const OrderItems = props => {
                           </div>
                         </>
                       ) : (
-                        <h4>Not Available</h4>
+                        <h4>Pas disponible</h4>
                       )}
                     </div>
                     <div className='d-flex justify-content-between flex-wrap d-md-none mt-1'>
                       <p className='mb-1 mr-4'>
-                        Status
+                      Statut
                         <span className='order-label order-status'>{` ${item.status}`}</span>
                       </p>
                       <p className='mb-1 mr-4'>
-                        Quantity
+                      Quantité
                         <span className='order-label'>{` ${item.quantity}`}</span>
                       </p>
                       <p>
-                        Total Price
-                        <span className='order-label'>{` $${item.totalPrice}`}</span>
+                      Prix total
+                      <span className='order-label'>{` $${item.totalPrice}`}</span>
                       </p>
                     </div>
                   </div>
@@ -141,17 +141,17 @@ const OrderItems = props => {
                 <div className='d-none d-md-flex justify-content-between align-items-center box'>
                   <div className='text-center'>
                     <p className='order-label order-status'>{`${item.status}`}</p>
-                    <p>Status</p>
+                    <p>Statut</p>
                   </div>
 
                   <div className='text-center'>
                     <p className='order-label'>{` ${item.quantity}`}</p>
-                    <p>Quantity</p>
+                    <p>Quantité</p>
                   </div>
 
                   <div className='text-center'>
                     <p className='order-label'>{` $${item.totalPrice}`}</p>
-                    <p>Total Price</p>
+                    <p>Prix total</p>
                   </div>
                 </div>
               </div>

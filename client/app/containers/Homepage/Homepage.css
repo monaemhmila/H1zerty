@@ -28,7 +28,7 @@
 }
 
 .service-item {
-  background-color: #f9f9f9;
+  background-color: #ddeedf;
   text-align: center;
   padding: 20px;
   border: 1px solid #ddd;
@@ -65,7 +65,7 @@
 }
 
 .testimonial-card {
-  background-color: #f9f9f9;
+  background-color: #ddeedf;
   padding: 20px;
   border-radius: 10px;
   margin: 10px 0;
@@ -89,19 +89,19 @@
 
 .testimonial-card .title {
   font-size: 14px;
-  color: #777;
+  color: #919191;
 }
 
 .faq-item {
   margin-bottom: 20px;
   padding: 15px;
   border-radius: 8px;
-  border: 1px solid #e3e3e3;
+  border: 1px solid #ddeedf;
   transition: all 0.3s ease;
 }
 
 .faq-item:hover {
-  background-color: #f1f1f1;
+  background-color: #f2f9f1;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -120,11 +120,11 @@
 
 .faq-icon {
   margin-right: 10px;
-  color: #6c757d;
+  color: #5c715e;
 }
 
 .faq-toggle-icon {
-  color: #6c757d;
+  color: #5c715e;
 }
 
 .section-container {

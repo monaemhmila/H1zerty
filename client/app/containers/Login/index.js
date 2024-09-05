@@ -43,7 +43,7 @@ class Login extends React.PureComponent {
     return (
       <div className='login-form'>
         {isLoading && <LoadingIndicator />}
-        <h2>Login</h2>
+        <h2>Se connecter </h2>
         <hr />
         <form onSubmit={handleSubmit} noValidate>
           <Row>
@@ -56,9 +56,9 @@ class Login extends React.PureComponent {
                 <Input
                   type={'text'}
                   error={formErrors['email']}
-                  label={'Email Address'}
+                  label={'Adresse email'}
                   name={'email'}
-                  placeholder={'Please Enter Your Email'}
+                  placeholder={'Veuillez entrer votre email'}
                   value={loginFormData.email}
                   onInputChange={(name, value) => {
                     loginChange(name, value);
@@ -69,9 +69,9 @@ class Login extends React.PureComponent {
                 <Input
                   type={'password'}
                   error={formErrors['password']}
-                  label={'Password'}
+                  label={'Mot de passe'}
                   name={'password'}
-                  placeholder={'Please Enter Your Password'}
+                  placeholder={'Veuillez entrer votre Mot de passe'}
                   value={loginFormData.password}
                   onInputChange={(name, value) => {
                     loginChange(name, value);
@@ -93,11 +93,11 @@ class Login extends React.PureComponent {
               <Button
                 type='submit'
                 variant='primary'
-                text='Login'
+                text='Se connecter'
                 disabled={isSubmitting}
               />
               <Button
-                text='Create an account'
+                text='Créer un compte'
                 variant='link'
                 className='ml-md-3'
                 onClick={registerLink}
@@ -107,7 +107,7 @@ class Login extends React.PureComponent {
               className='redirect-link forgot-password-link'
               to={'/forgot-password'}
             >
-              Forgot Password?
+            Mot de passe oublié ?
             </Link>
           </div>
         </form>

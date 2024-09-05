@@ -30,7 +30,7 @@ const AccountDetails = props => {
               user.email
             ) : (
               <span className='provider-email'>
-                Logged in With {user.provider}
+                Connecté avec {user.provider}
               </span>
             )}
           </p>
@@ -42,9 +42,9 @@ const AccountDetails = props => {
           <Col xs='12' md='6'>
             <Input
               type={'text'}
-              label={'First Name'}
+              label={'Prénom'}
               name={'firstName'}
-              placeholder={'Please Enter Your First Name'}
+              placeholder={'Veuillez entrer votre prénom'}
               value={user.firstName ? user.firstName : ''}
               onInputChange={(name, value) => {
                 accountChange(name, value);
@@ -54,9 +54,9 @@ const AccountDetails = props => {
           <Col xs='12' md='6'>
             <Input
               type={'text'}
-              label={'Last Name'}
+              label={'Nom de famille'}
               name={'lastName'}
-              placeholder={'Please Enter Your Last Name'}
+              placeholder={'Veuillez entrer votre nom de famille'}
               value={user.lastName ? user.lastName : ''}
               onInputChange={(name, value) => {
                 accountChange(name, value);
@@ -79,9 +79,9 @@ const AccountDetails = props => {
           <Col xs='12' md='12'>
             <Input
               type={'text'}
-              label={'Phone Number'}
+              label={'Numéro de téléphone'}
               name={'phoneNumber'}
-              placeholder={'Please Enter Your Phone Number'}
+              placeholder={'Veuillez entrer votre numéro de téléphone'}
               value={user.phoneNumber ? user.phoneNumber : ''}
               onInputChange={(name, value) => {
                 accountChange(name, value);

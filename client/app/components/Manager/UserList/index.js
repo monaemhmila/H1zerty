@@ -16,15 +16,15 @@ const UserList = props => {
     <div className='u-list'>
       {users.map((user, index) => (
         <div key={index} className='mt-3 px-4 py-3 user-box'>
-          <label className='text-black'>Name</label>
+          <label className='text-black'>Nom</label>
           <p className='fw-medium'>
             {user?.firstName ? `${user?.firstName} ${user?.lastName}` : 'N/A'}
           </p>
           <label className='text-black'>Email</label>
           <p>{user?.email ?? '-'}</p>
-          <label className='text-black'>Provider</label>
+          <label className='text-black'>Fournisseuse</label>
           <p>{user?.provider}</p>
-          <label className='text-black'>Account Created</label>
+          <label className='text-black'>Compte créé</label>
           <p>{formatDate(user?.created)}</p>
           <label className='text-black'>Role</label>
           <p className='mb-0'>
