@@ -90,14 +90,18 @@ router.post('/login', async (req, res) => {
 
 router.post('/register', async (req, res) => {
   try {
-    const { email, firstName, lastName, password, isSubscribed } = req.body;
+    console.log(req.body);
+
+    const { email, phoneNumber, firstName, lastName, password, isSubscribed } = req.body;
 
     if (!email) {
       return res
         .status(400)
         .json({ error: 'You must enter an email address.' });
     }
-
+    if (!phoneNumber) {
+      return res.status(400).json({ error: 'You must enter a phone number.' });
+    }
     if (!firstName || !lastName) {
       return res.status(400).json({ error: 'You must enter your full name.' });
     }
@@ -105,6 +109,8 @@ router.post('/register', async (req, res) => {
     if (!password) {
       return res.status(400).json({ error: 'You must enter a password.' });
     }
+
+    
 
     const existingUser = await User.findOne({ email });
 
@@ -127,7 +133,8 @@ router.post('/register', async (req, res) => {
       email,
       password,
       firstName,
-      lastName
+      lastName,
+      phoneNumber
     });
 
     const salt = await bcrypt.genSalt(10);
@@ -158,6 +165,7 @@ router.post('/register', async (req, res) => {
         firstName: registeredUser.firstName,
         lastName: registeredUser.lastName,
         email: registeredUser.email,
+        phoneNumber: registeredUser.phoneNumber, // Added phoneNumber to response
         role: registeredUser.role
       }
     });
@@ -167,6 +175,7 @@ router.post('/register', async (req, res) => {
     });
   }
 });
+
 
 router.post('/forgot', async (req, res) => {
   try {

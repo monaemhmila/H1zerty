@@ -16,6 +16,7 @@ import {
 const initialState = {
   signupFormData: {
     email: '',
+    phoneNumber: '',
     firstName: '',
     lastName: '',
     password: ''
@@ -58,6 +59,7 @@ const signupReducer = (state = initialState, action) => {
         ...state,
         signupFormData: {
           email: '',
+          phoneNumber: '',
           firstName: '',
           lastName: '',
           password: ''

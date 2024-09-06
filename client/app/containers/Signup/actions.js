@@ -41,8 +41,11 @@ export const subscribeChange = () => {
 export const signUp = () => {
   return async (dispatch, getState) => {
     try {
+      const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{5})$/;
+
       const rules = {
         email: 'required|email',
+        phoneNumber: ['required', `regex:${phoneno}`],
         password: 'required|min:6',
         firstName: 'required',
         lastName: 'required'
@@ -53,6 +56,7 @@ export const signUp = () => {
 
       const { isValid, errors } = allFieldsValidation(newUser, rules, {
         'required.email': 'Email is required.',
+        'required.phoneNumber': 'Phone number is required.',
         'required.password': 'Password is required.',
         'required.firstName': 'First Name is required.',
         'required.lastName': 'Last Name is required.'
@@ -69,6 +73,9 @@ export const signUp = () => {
         isSubscribed,
         ...newUser
       };
+
+      // Log the user object before sending the request to verify the data
+      console.log('User data being sent:', user);
 
       const response = await axios.post(`${API_URL}/auth/register`, user);
 
@@ -94,3 +101,4 @@ export const signUp = () => {
     }
   };
 };
+

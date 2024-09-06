@@ -32,7 +32,7 @@ class Signup extends React.PureComponent {
       subscribeChange
     } = this.props;
 
-    if (authenticated) return <Redirect to='/dashboard' />;
+    if (authenticated) return <Redirect to='/dashboard/address/add' />;
 
     const handleSubmit = event => {
       event.preventDefault();
@@ -92,6 +92,19 @@ class Signup extends React.PureComponent {
               </Col>
               <Col xs='12' md='12'>
                 <Input
+                  type={'text'}
+                  error={formErrors['phoneNumber']}
+                  label={'Numéro de téléphone'}
+                  name={'phoneNumber'}
+                  placeholder={'Veuillez entrer votre numéro de téléphone'}
+                  value={signupFormData.phoneNumber}
+                  onInputChange={(name, value) => {
+                    signupChange(name, value);
+                  }}
+                />
+              </Col>
+              <Col xs='12' md='12'>
+                <Input
                   type={'password'}
                   label={'Mot de passe'}
                   error={formErrors['password']}
@@ -135,6 +148,7 @@ class Signup extends React.PureComponent {
     );
   }
 }
+
 
 const mapStateToProps = state => {
   return {

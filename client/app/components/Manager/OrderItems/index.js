@@ -38,7 +38,13 @@ const OrderItems = props => {
     const isAdmin = user.role === ROLES.Admin;
     const isMerchant = user.role === ROLES.Merchant;
 
-    if (item.status === CART_ITEM_STATUS.Delivered) {
+    if (
+      !isAdmin && 
+      !isMerchant && 
+      (item.status === CART_ITEM_STATUS.Delivered || 
+       item.status === CART_ITEM_STATUS.Processing || 
+       item.status === CART_ITEM_STATUS.Shipped)
+    ) {
       return (
         <Link
           to={`/product/${item.product.slug}`}
