@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Mongoose = require('mongoose');
 const User = require('../../models/user');
+const Address = require('../../models/address'); // Include the Address model
 // Bring in Models & Utils
 const Order = require('../../models/order');
 const Cart = require('../../models/cart');
@@ -9,8 +10,7 @@ const Product = require('../../models/product');
 const auth = require('../../middleware/auth');
 const mailgun = require('../../services/mailgun');
 const store = require('../../utils/store');
-const { formatOrders } = require('../../utils/store'); // Ajustez le chemin en fonction de votre structure de fichiers
-
+const { formatOrders } = require('../../utils/store'); // Adjust the path according to your file structure
 const { ROLES, CART_ITEM_STATUS } = require('../../constants');
 
 router.post('/add', auth, async (req, res) => {
@@ -18,6 +18,16 @@ router.post('/add', auth, async (req, res) => {
     const cart = req.body.cartId;
     const total = req.body.total;
     const user = req.user._id;
+
+    // Check if the user has at least one registered address
+    const userAddress = await Address.findOne({ user });
+
+    if (!userAddress) {
+      return res.status(69).json({
+        success: false,
+        message: 'You must have a registered address to place an order.'
+      });
+    }
 
     const order = new Order({
       cart,
@@ -42,6 +52,7 @@ router.post('/add', auth, async (req, res) => {
       products: cartDoc.products
     };
 
+    // Send confirmation email
     await mailgun.sendEmail(order.user.email, 'order-confirmation', newOrder);
 
     res.status(200).json({
