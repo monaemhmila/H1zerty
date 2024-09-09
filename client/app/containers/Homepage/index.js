@@ -123,64 +123,103 @@ const Homepage = ({ products, filterProducts, match }) => {
 
 
       <Container className='mt-5'>
-        <h1 className='text-center mb-5'>Questions Fréquentes</h1>
-        <Row>
-          <Col xs='12' md='6'>
-            <img src='images/celleci.png' alt='FAQ Image' className='img-fluid' />
-          </Col>
-          <Col xs='12' md='6'>
-            <div className='faq-section'>
-              <FAQItem question="C'est quoi un QR Code ?" answer="Vous connaissez certainement le code-barre à rayures verticales qu'il suffit de scanner pour obtenir un prix ? Eh bien, le QR Code (ou Quick Response Code pour nos amis anglophones) est également un code-barre 2D qui contient des informations plus fournies. Celui-ci est particulièrement utilisé pour transmettre un document entier, comme un menu de restaurant par exemple !" />
-              <FAQItem question="Comment se passe la création d'un QR Code ?" answer="La création d'un QR Code est simple et rapide. Il suffit d'utiliser un générateur de QR Code en ligne ou une application dédiée. Vous entrez les informations que vous souhaitez inclure, et le générateur crée un code unique que vous pouvez télécharger et utiliser." />
-              <FAQItem question="Peut-on insérer un lien dans notre menu digital ?" answer="Oui, vous pouvez insérer des liens dans votre menu digital. Ces liens peuvent diriger vos clients vers des pages spécifiques, des informations supplémentaires ou même des options de commande en ligne." />
-              <FAQItem question="Comment scanner un QR Code avec un smartphone ?" answer="Pour scanner un QR Code avec un smartphone, ouvrez simplement l'application de l'appareil photo et pointez-la vers le QR Code. Un lien ou une notification apparaîtra, vous permettant d'accéder aux informations contenues dans le code." />
-              <FAQItem question="Faut-il télécharger une application spéciale ?" answer="Dans la plupart des cas, il n'est pas nécessaire de télécharger une application spéciale pour scanner un QR Code. Les smartphones modernes ont souvent cette fonctionnalité intégrée directement dans l'application de l'appareil photo." />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+  <h1 className='text-center mb-5'>Questions Fréquentes</h1>
+  <Row>
+    <Col xs='12' md='6'>
+      <img src='images/celleci.png' alt='FAQ Image' className='img-fluid rounded faq-image' />
+    </Col>
+    <Col xs='12' md='6'>
+      <div className='faq-section'>
+        <FAQItem 
+          question="Comment fonctionne la carte intelligente ?" 
+          answer="Elle permet de partager vos informations personnelles en un instant avec un simple geste. Plus besoin de papiers, tout est digital et accessible en quelques secondes." />
+        <FAQItem 
+          question="Quelles informations puis-je y ajouter ?" 
+          answer="Vos coordonnées, liens vers vos réseaux sociaux, site web, portfolio ou toute autre information essentielle pour vos contacts. Tout est personnalisable." />
+        <FAQItem 
+          question="Comment mes contacts accèdent-ils à mes informations ?" 
+          answer="Il leur suffit d’approcher leur smartphone de la carte pour voir apparaître vos informations sur leur écran. C’est aussi simple que ça." />
+        <FAQItem 
+          question="Est-ce sécurisé ?" 
+          answer="Absolument. Seules les informations que vous souhaitez partager sont visibles et vous avez toujours le contrôle sur ce que vous diffusez." />
+        <FAQItem 
+          question="Puis-je modifier les informations après création ?" 
+          answer="Oui, vous pouvez mettre à jour vos informations à tout moment via une interface dédiée. Cela permet de toujours garder vos coordonnées à jour sans avoir à remplacer la carte." />
+      </div>
+    </Col>
+  </Row>
+</Container>
+
 
       <Container className='testimonials'>
-        <h2 className='text-center mb-5'>Témoignage</h2>
-        <Row>
-          <Col xs='12' md='4'>
-            <div className='testimonial-card'>
-              <p>Merci Beaucoup al logiciel , yarhem weldikom service tayara !</p>
-              <div className='d-flex align-items-center'>
-                <img src='/images/monji-bhar.jpg' alt='Monji Bhar' />
-                <div className='ml-3'>
-                  <p className='name'>Monji Bhar</p>
-                  <p className='title'>Gérant Societe AluPro of AluMenuiserie Pro</p>
-                </div>
-              </div>
+  <h2 className='text-center mb-5'>Témoignages</h2>
+  <Row>
+    <Col xs='12' md='4'>
+      <div className='testimonial-card'>
+        <p className='testimonial-text'>
+          "La carte NFC iCart est à la fois pratique et moderne, simplifiant l'accès à mes coordonnées pour mes patients. Elle favorise une communication fluide. Merci beaucoup pour ce produit qui m'a permis de me connecter plus facilement avec mes clients. Un service vraiment exceptionnel !"
+        </p>
+        <div className='d-flex align-items-center'>
+          <img src='/images/testimonial/testemonial.png' alt='User 1' className='testimonial-img' />
+          <div className='ml-3'>
+            <p className='name'>Dr. Sophie Martin</p>
+            <p className='title'>Médecin généraliste</p>
+            <div className='rating'>
+              ⭐⭐⭐⭐⭐
             </div>
-          </Col>
-          <Col xs='12' md='4'>
-            <div className='testimonial-card'>
-              <p>L'optimisation et la facilité d'utilisation sont impressionnantes, je recommande vivement ICart !</p>
-              <div className='d-flex align-items-center'>
-                <img src='/images/monji-bhar.jpg' alt='Amine Bhar' />
-                <div className='ml-3'>
-                  <p className='name'>Amine Bhar</p>
-                  <p className='title'>PDG ElBhar For Security</p>
-                </div>
-              </div>
+          </div>
+        </div>
+        <div className='card-phone-image'>
+          <img src='/images/testimonial/testemonial4.png' alt='iCart and phone' />
+        </div>
+      </div>
+    </Col>
+
+    <Col xs='12' md='4'>
+      <div className='testimonial-card'>
+        <p className='testimonial-text'>
+          "Grâce à iCart, mes échanges professionnels sont devenus beaucoup plus simples et rapides. La carte permet de partager mes informations en un seul geste, sans tracas. Je recommande vivement ce produit innovant."
+        </p>
+        <div className='d-flex align-items-center'>
+          <img src='/images/testimonial/testemonial1.png' alt='User 2' className='testimonial-img' />
+          <div className='ml-3'>
+            <p className='name'>Pierre Dubois</p>
+            <p className='title'>Consultant en stratégie</p>
+            <div className='rating'>
+              ⭐⭐⭐⭐⭐
             </div>
-          </Col>
-          <Col xs='12' md='4'>
-            <div className='testimonial-card'>
-              <p>Nous avons transformé notre façon de faire des affaires grâce à ICart. Hautement recommandé !</p>
-              <div className='d-flex align-items-center'>
-                <img src='/images/monji-bhar.jpg' alt='Haythem Bhar' />
-                <div className='ml-3'>
-                  <p className='name'>Haythem Bhar</p>
-                  <p className='title'>Directeur BharTech Solutions</p>
-                </div>
-              </div>
+          </div>
+        </div>
+        <div className='card-phone-image'>
+          <img src='/images/testimonial/testemonial3.png' alt='iCart and phone' />
+        </div>
+      </div>
+    </Col>
+
+    <Col xs='12' md='4'>
+      <div className='testimonial-card'>
+        <p className='testimonial-text'>
+          "iCart a complètement transformé ma manière de réseauter. Non seulement elle est pratique, mais elle m'a aussi permis de gagner en efficacité dans la gestion de mes contacts. Un véritable atout pour mon activité !"
+        </p>
+        <div className='d-flex align-items-center'>
+          <img src='/images/testimonial/testemonial2.png' alt='User 3' className='testimonial-img' />
+          <div className='ml-3'>
+            <p className='name'>Julie Moreau</p>
+            <p className='title'>Directrice de marketing</p>
+            <div className='rating'>
+              ⭐⭐⭐⭐⭐
             </div>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+        <div className='card-phone-image'>
+          <img src='/images/testimonial/testemonial5.png' alt='iCart and phone' />
+        </div>
+      </div>
+    </Col>
+  </Row>
+  
+</Container>
+
     </div>
   );
 };

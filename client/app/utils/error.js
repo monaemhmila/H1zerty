@@ -34,10 +34,6 @@ const handleError = (err, dispatch, title = '') => {
       unsuccessfulOptions.message =
         'Forbidden! You are not allowed to access this resource.';
       dispatch(error(unsuccessfulOptions));
-    }else if (err.response.status === 69) {
-      unsuccessfulOptions.title = title ? title : 'aaaaaaaaaaaaaaaaaaaaaaaaaaa';
-      unsuccessfulOptions.message = err.response.data.error;
-      dispatch(error(unsuccessfulOptions));
     }
   } else if (err.message) {
     unsuccessfulOptions.message = err.message;
