@@ -72,16 +72,11 @@ const config = {
     open: true,
     inline: true,
     compress: true,
+    host: '0.0.0.0',
     hot: true,
-    disableHostCheck: true, // Ensure it's only used for dev, not production
-    historyApiFallback: true,
-    client: {
-        webSocketURL: 'ws://icart.tn/sockjs-node', // Use ws:// for WebSockets, and your domain
-    },
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-    },
-},
+    disableHostCheck: true,
+    historyApiFallback: true
+  },
   devtool: 'eval-source-map'
 };
 
