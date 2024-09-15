@@ -29,7 +29,7 @@ app.use(routes);
 const server = app.listen(port, () => {
   console.log(
     `${chalk.green('✓')} ${chalk.blue(
-      `Listening on port ${port}. Visit http://127.0.0.1:${port}/ in your browser.`
+      `Listening on port ${port}. Visit https://127.0.0.1:${port}/ in your browser.`
     )}`
   );
 });
