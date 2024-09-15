@@ -75,20 +75,8 @@ const config = {
     hot: true,
     disableHostCheck: true,
     historyApiFallback: true,
-    https: true, // Enable HTTPS
-    client: {
-      webSocketURL: {
-        hostname: 'icart.tn',
-        port: 8080,
-        pathname: '/sockjs-node',
-        protocol: 'wss',
-      },
-    },
-  }
-  ,
-  
-  
-
+    https: true,  
+  },
   devtool: 'eval-source-map'
 };
 
