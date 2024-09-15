@@ -1,20 +1,14 @@
-/**
- *
- * Footer
- *
- */
-
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 import { Container } from 'reactstrap';
-
 import Newsletter from '../../../containers/Newsletter';
 
 const Footer = () => {
   const infoLinks = [
     { id: 0, name: 'Contact Us', to: '/contact' },
-    { id: 2, name: 'Shipping', to: '/shipping' }
+    { id: 1, name: 'Shipping', to: '/shipping' },
+    { id: 2, name: 'Privacy Policy', to: 'https://icart.tn/Privacy.html', external: true },
+    { id: 3, name: 'Terms and Conditions', to: 'https://icart.tn/TERMSAND-CONDITIONS.HTML', external: true }
   ];
 
   const footerBusinessLinks = (
@@ -30,9 +24,15 @@ const Footer = () => {
 
   const footerLinks = infoLinks.map(item => (
     <li key={item.id} className='footer-link'>
-      <Link key={item.id} to={item.to}>
-        {item.name}
-      </Link>
+      {item.external ? (
+        <a href={item.to} target='_blank' rel='noopener noreferrer'>
+          {item.name}
+        </a>
+      ) : (
+        <Link to={item.to}>
+          {item.name}
+        </Link>
+      )}
     </li>
   ));
 
