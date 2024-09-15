@@ -75,7 +75,10 @@ const config = {
     hot: true,
     disableHostCheck: true,
     historyApiFallback: true,
+    // Ensure you are not using https in local development if your local server does not support it
+    https: true, // Set to true only if you have SSL setup for local development
   },
+  
   devtool: 'eval-source-map'
 };
 

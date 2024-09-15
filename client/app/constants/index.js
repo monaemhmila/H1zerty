@@ -2,7 +2,7 @@ export const API_URL = process.env.API_URL;
 
 export const SOCKET_URL =
   window.location.host.indexOf('icart.tn') >= 0
-    ? 'https://icart.tn:8080'
+    ? 'https://icart.tn'
     : window.location.host;
 
 export const ROLES = {

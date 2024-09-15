@@ -18,7 +18,7 @@ const config = {
   output: {
     path: path.join(CURRENT_WORKING_DIR, '/dist'),
     filename: 'js/[name].[contenthash].js',
-    publicPath: '/' // Ensure this is correct
+    publicPath: '/' 
   },
   module: {
     rules: [
