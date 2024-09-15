@@ -73,10 +73,20 @@ const config = {
     inline: true,
     compress: true,
     hot: true,
-    disableHostCheck: true, 
+    disableHostCheck: true,
     historyApiFallback: true,
-    https: true,  
-  },
+    https: true, // Enable HTTPS
+    client: {
+      webSocketURL: {
+        hostname: 'icart.tn',
+        port: 8080,
+        pathname: '/sockjs-node',
+        protocol: 'wss',
+      },
+    },
+  }
+  ,
+  
   
 
   devtool: 'eval-source-map'
