@@ -73,17 +73,11 @@ const config = {
     inline: true,
     compress: true,
     hot: true,
+    disableHostCheck: true, 
     historyApiFallback: true,
-    disableHostCheck: true, // For local development, ensure this is configured correctly
-    // Ensure this points to the correct address for local testing
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3000', // Ensure this is the correct backend port
-        changeOrigin: true,
-        secure: false, // Use false for local development without SSL
-      },
-    },
+    https: true,  
   },
+  
 
   devtool: 'eval-source-map'
 };
