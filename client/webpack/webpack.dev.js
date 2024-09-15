@@ -75,7 +75,6 @@ const config = {
     hot: true,
     disableHostCheck: true,
     historyApiFallback: true,
-    https: true,  
   },
   devtool: 'eval-source-map'
 };
