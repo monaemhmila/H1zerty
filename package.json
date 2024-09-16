@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "copy-webpack-plugin": "^12.0.2",
     "react-bootstrap": "^2.10.4",
     "react-icons": "^5.2.1",
     "react-slick": "^0.30.2",

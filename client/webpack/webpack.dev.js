@@ -8,7 +8,7 @@ const common = require('./webpack.common');
 const CURRENT_WORKING_DIR = process.cwd();
 
 const config = {
-  mode: 'development',
+  mode: 'production',
   output: {
     path: path.join(CURRENT_WORKING_DIR, '/dist'),
     filename: '[name].js',
