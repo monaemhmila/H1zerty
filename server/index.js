@@ -1,12 +1,11 @@
+// server.js or app.js
 require('dotenv').config();
 const express = require('express');
-const chalk = require('chalk');
 const cors = require('cors');
 const helmet = require('helmet');
 
 const keys = require('./config/keys');
 const routes = require('./routes');
-const socket = require('./socket');
 const setupDB = require('./utils/db');
 
 const { port } = keys;
@@ -26,12 +25,7 @@ setupDB();
 require('./config/passport')(app);
 app.use(routes);
 
+// Start the server on HTTP
 const server = app.listen(port, () => {
-  console.log(
-    `${chalk.green('✓')} ${chalk.blue(
-      `Listening on port ${port}. Visit https://127.0.0.1:${port}/ in your browser.`
-    )}`
-  );
+  console.log(`Server running on http://localhost:${port}`);
 });
-
-socket(server);
