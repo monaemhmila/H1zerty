@@ -1,231 +1,265 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button, Collapse, Card, CardBody } from 'reactstrap';
-import { connect } from 'react-redux';
-import { FaQuestionCircle, FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import './Homepage.css'; // Import the custom CSS file
-import actions from '../../actions';
+import { Container, Row, Col } from 'reactstrap';
+import './Homepage.css';
 
-const FAQItem = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
-  return (
-    <div className="faq-item">
-      <Button color="transparent" onClick={toggle} className="faq-button">
-        <div className="faq-question">
-          <FaQuestionCircle className="faq-icon" />
-          <h4>{question}</h4>
-        </div>
-        {isOpen ? <FaChevronUp className="faq-toggle-icon" /> : <FaChevronDown className="faq-toggle-icon" />}
-      </Button>
-      <Collapse isOpen={isOpen}>
-        <Card>
-          <CardBody>
-            <p>{answer}</p>
-          </CardBody>
-        </Card>
-      </Collapse>
-    </div>
-  );
-};
-
-const Homepage = ({ products, filterProducts, match }) => {
-  useEffect(() => {
-    const slug = match.params.slug;
-    filterProducts(slug);
-  }, [filterProducts, match.params.slug]);
-
-  return (
-    <div className='homepage'>
-      <div className='hero-section'>
-        <Container className='text-center mt-2'>
-          <h1 className='font-weight-bold'>Innovez votre réseau avec la technologie NFC</h1>
-        </Container>
-      </div>
-
-      <Container className='text-center mt-2'>
-        <img src='/images/qr-code.png' alt='QR Code' className='qr-code-img' />
-        <p>Scannez le code QR pour découvrir nos services</p>
-      </Container>
-
-     
-      
-      {/* Other sections remain unchanged */}
-      <Container className='text-center mt-4'>
-        <Row className='info-section'>
-          <Col xs='12' md='4'>
-            <div className='info-item'>
-              <img src='/images/connexion-rapide-icon.png' alt='Connexion Rapide' className='info-icon' />
-              <h4>Connexion Rapide</h4>
-              <p>Avec ICart, l'avenir des échanges professionnels est là.</p>
-            </div>
-          </Col>
-          <Col xs='12' md='4'>
-            <div className='info-item'>
-              <img src='/images/fabrication-francaise-icon.png' alt='Fabrication Française' className='info-icon' />
-              <h4>Fabrication Tunisienne</h4>
-              <p>Fabriqués avec précision et passion en Tunisie.</p>
-            </div>
-          </Col>
-          <Col xs='12' md='4'>
-            <div className='info-item'>
-              <img src='/images/support-icon.png' alt='24/7 Support' className='info-icon' />
-              <h4>24/7 Support</h4>
-              <p>Notre équipe est à votre service 24h/24, 7j/7.</p>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-
-      <Container className='mt-4'>
-        <Row>
-          <Col xs='12' md='6'>
-            <div className='service-item'>
-              <img src='/images/digital-cards-icon.png' alt='Cartes Digitales NFC' className='service-icon' />
-              <h4>Cartes Digitales ICart</h4>
-              <p>Nous sommes fiers d'offrir des solutions novatrices et accessibles pour soutenir la croissance des entreprises dans un monde de plus en plus numérique. Découvrez nos cartes de visite NFC premium et nos cartes d'avis Google NFC.</p>
-            </div>
-          </Col>
-          <Col xs='12' md='6'>
-            <div className='service-item'>
-              <img src='/images/nfc-plaques-icon.png' alt='Plaques NFC' className='service-icon' />
-              <h4>Plaques ICart</h4>
-              <p>Découvrez nos plaques ICart polyvalentes, conçues pour générer des avis positifs sur Google et renforcer votre présence sur Facebook, YouTube, Instagram, TikTok, Snapchat, Doctolib, Planity, et bien plus encore.</p>
-            </div>
-          </Col>
-        </Row>
-        <Row className='mt-4'>
-          <Col xs='12' md='6'>
-            <div className='service-item'>
-              <img src='/images/nfc-stickers-icon.png' alt='Stickers NFC' className='service-icon' />
-              <h4>Menu Avanceés</h4>
-              <p>Découvrez nos Menu ICart de haute qualité, conçus pour les restaurants. Scannez simplement un QR code sur la table pour accéder au menu et passer commande directement depuis votre smartphone.</p>
-            </div>
-          </Col>
-          <Col xs='12' md='6'>
-            <div className='service-item'>
-              <img src='/images/custom-nfc-products-icon.png' alt='Vos Produits NFC Personnalisés' className='service-icon' />
-              <h4>Vos Produits ICart Personnalisés</h4>
-              <p>Nous proposons un service de personnalisation pour aider les entreprises à créer des cartes de visite NFC, des Menu et des Plaques NFC en accord avec leur charte graphique, et ce à des prix avantageux.</p>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-
-       {/* New Delivery Section */}
-       <Container className='mt-4' style={{ backgroundColor: '#ddeedf' }}>
-        <div className='delivery-section'>
-          <h2  className='font-weight-bold'>Service Livraison</h2>
-          <p><strong>Expédition de vos produits dans un délai de 3 à 5 jours ouvrés.</strong></p>
-          <p>Parce que chez ICart, nous ne faisons pas que livrer des produits, nous apportons une touche d’efficacité à chaque commande, mettant votre satisfaction au cœur de notre engagement. Faites l’expérience d’une livraison qui transforme l’attente en anticipation et confirmez pourquoi choisir ICart, c’est choisir l’excellence à chaque étape.</p>
-        </div>
-      </Container>
-
-
-      <Container className='mt-5'>
-  <h1 className='text-center mb-5'>Questions Fréquentes</h1>
-  <Row>
-    <Col xs='12' md='6'>
-      <img src='images/celleci.png' alt='FAQ Image' className='img-fluid rounded faq-image' />
-    </Col>
-    <Col xs='12' md='6'>
-      <div className='faq-section'>
-        <FAQItem 
-          question="Comment fonctionne la carte intelligente ?" 
-          answer="Elle permet de partager vos informations personnelles en un instant avec un simple geste. Plus besoin de papiers, tout est digital et accessible en quelques secondes." />
-        <FAQItem 
-          question="Quelles informations puis-je y ajouter ?" 
-          answer="Vos coordonnées, liens vers vos réseaux sociaux, site web, portfolio ou toute autre information essentielle pour vos contacts. Tout est personnalisable." />
-        <FAQItem 
-          question="Comment mes contacts accèdent-ils à mes informations ?" 
-          answer="Il leur suffit d’approcher leur smartphone de la carte pour voir apparaître vos informations sur leur écran. C’est aussi simple que ça." />
-        <FAQItem 
-          question="Est-ce sécurisé ?" 
-          answer="Absolument. Seules les informations que vous souhaitez partager sont visibles et vous avez toujours le contrôle sur ce que vous diffusez." />
-        <FAQItem 
-          question="Puis-je modifier les informations après création ?" 
-          answer="Oui, vous pouvez mettre à jour vos informations à tout moment via une interface dédiée. Cela permet de toujours garder vos coordonnées à jour sans avoir à remplacer la carte." />
-      </div>
-    </Col>
-  </Row>
-</Container>
-
-
-      <Container className='testimonials'>
-  <h2 className='text-center mb-5'>Témoignages</h2>
-  <Row>
-    <Col xs='12' md='4'>
-      <div className='testimonial-card'>
-        <p className='testimonial-text'>
-          "La carte NFC iCart est à la fois pratique et moderne, simplifiant l'accès à mes coordonnées pour mes patients. Elle favorise une communication fluide. Merci beaucoup pour ce produit qui m'a permis de me connecter plus facilement avec mes clients. Un service vraiment exceptionnel !"
-        </p>
-        <div className='d-flex align-items-center'>
-          <img src='/images/testimonial/testemonial.png' alt='User 1' className='testimonial-img' />
-          <div className='ml-3'>
-            <p className='name'>Dr. Sophie Martin</p>
-            <p className='title'>Médecin généraliste</p>
-            <div className='rating'>
-              ⭐⭐⭐⭐⭐
-            </div>
-          </div>
-        </div>
-        <div className='card-phone-image'>
-          <img src='/images/testimonial/testemonial4.png' alt='iCart and phone' />
-        </div>
-      </div>
-    </Col>
-
-    <Col xs='12' md='4'>
-      <div className='testimonial-card'>
-        <p className='testimonial-text'>
-          "Grâce à iCart, mes échanges professionnels sont devenus beaucoup plus simples et rapides. La carte permet de partager mes informations en un seul geste, sans tracas. Je recommande vivement ce produit innovant."
-        </p>
-        <div className='d-flex align-items-center'>
-          <img src='/images/testimonial/testemonial1.png' alt='User 2' className='testimonial-img' />
-          <div className='ml-3'>
-            <p className='name'>Pierre Dubois</p>
-            <p className='title'>Consultant en stratégie</p>
-            <div className='rating'>
-              ⭐⭐⭐⭐⭐
-            </div>
-          </div>
-        </div>
-        <div className='card-phone-image'>
-          <img src='/images/testimonial/testemonial3.png' alt='iCart and phone' />
-        </div>
-      </div>
-    </Col>
-
-    <Col xs='12' md='4'>
-      <div className='testimonial-card'>
-        <p className='testimonial-text'>
-          "iCart a complètement transformé ma manière de réseauter. Non seulement elle est pratique, mais elle m'a aussi permis de gagner en efficacité dans la gestion de mes contacts. Un véritable atout pour mon activité !"
-        </p>
-        <div className='d-flex align-items-center'>
-          <img src='/images/testimonial/testemonial2.png' alt='User 3' className='testimonial-img' />
-          <div className='ml-3'>
-            <p className='name'>Julie Moreau</p>
-            <p className='title'>Directrice de marketing</p>
-            <div className='rating'>
-              ⭐⭐⭐⭐⭐
-            </div>
-          </div>
-        </div>
-        <div className='card-phone-image'>
-          <img src='/images/testimonial/testemonial5.png' alt='iCart and phone' />
-        </div>
-      </div>
-    </Col>
-  </Row>
+const Homepage = () => {
+    const [selectedCategory, setSelectedCategory] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
   
-</Container>
+  useEffect(() => {
+    setIsVisible(true);
+    
+    // Scroll animation trigger
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight - 100) {
+          section.classList.add('section-visible');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  const categories = [
+    'Maison et déco',
+    'Aliments et boissons',
+    'Femme',
+    'Beauté et bien-être',
+    'Bijoux',
+    'Papeterie et articles fantaisie',
+    'Enfant et bébé',
+    'Animaux',
+    'Homme'
+  ];
 
+  const bestSellers = [
+    { 
+      name: 'Product 1', 
+      detail: 'Short detail',
+      image: 'https://cdn.faire.com/fastly/2bc4d97018ef06e79731c8fbbfa201b4a440837c450a5725d323c344f4676645.jpeg?dpr=1&fit=crop&format=jpg&height=260&width=260'
+    },
+    { 
+      name: 'Product 2', 
+      detail: 'Short detail',
+      image: 'https://cdn.faire.com/fastly/f28fda81e75209633f57367c1f0a46f1fe6148b0001dc50ca12e751aa2ae9811.jpeg?dpr=1&fit=crop&format=jpg&height=260&width=260'
+    },
+    { 
+      name: 'Product 3', 
+      detail: 'Short detail',
+      image: 'https://cdn.faire.com/fastly/4fa9be357b08c6ee07517a66256380f0315bf38ceb05c0bf969dff9f548c4b0c.jpeg?dpr=1&fit=crop&format=jpg&height=260&width=260'
+    },
+    { 
+      name: 'Product 4', 
+      detail: 'Short detail',
+      image: 'https://cdn.faire.com/fastly/9d389feb08a0d51bb991417050e2e120cf536e20785109edecf87fa7c7758b73.jpeg?dpr=1&fit=crop&format=jpg&height=260&width=260'
+    }
+  ];
+
+  const values = [
+    'Marques dirigées par des femmes',
+    'Marques dirigées par des personnes LGBTQI+',
+    'Produits écoresponsables',
+    'Produits bio',
+    'Produits faits main',
+    'Produits non disponibles sur Amazon',
+    'Marques solidaires'
+  ];
+
+  const features = [
+    {
+      title: "Essayez de nouvelles marques en toute confiance",
+      desc: "vous bénéficiez des retours gratuits et simplifiés sur toutes vos premières commandes."
+    },
+    {
+      title: "Achetez de nouveaux produits pour votre boutique maintenant et payez vos factures dans 60 jours, sans frais."
+    },
+    {
+      title: "Bénéficiez de la livraison gratuite auprès de milliers de marques grâce à un abonnement Insider sur Faire."
+    }
+  ];
+
+return (
+    <div >
+      {/* Hero Section */}
+      <section className="hero-section" style={{ backgroundColor: '#595604' }}>
+        <Container fluide>
+          <Row className="align-items-center">
+            <Col md="6" className="hero-content">
+              <p className="hero-title animate-fadein">
+                Achetez des produits qui plairont aux clients de votre boutique.
+              </p>
+              <div className="testimonial mt-4 animate-fadein" style={{ animationDelay: '0.3s' }}>
+                <img 
+                  src="https://cdn.faire.com/fastly/6f174ccfd78008a0bf37fe8a7af31a8bf6a430b52f6acf75eef426258816441c.jpeg" 
+                  alt="Caroline Kim-Rodrigues" 
+                  className="testimonial-img"
+                />
+                <div>
+                  <p className="testimonial-name"><strong>Caroline Kim-Rodrigues, fondatrice de Merci Milo</strong></p>
+                  <p className="testimonial-location">Los Angeles, Californie et Portland, Oregon</p>
+                </div>
+              </div>
+            </Col>
+            <Col md="6" className="text-center hero-image-container">
+              <img
+                src="https://cdn.faire.com/fastly/6f174ccfd78008a0bf37fe8a7af31a8bf6a430b52f6acf75eef426258816441c.jpeg?dpr=1&format=jpg&height=264&width=355"
+                alt="Hero"
+                className="hero-image animate-float"
+              />
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Category Section */}
+      <section className="category-section py-5">
+        <Container>
+          <div className="text-center mb-4">
+            <p className="lead mb-1 animate-fadein">Les meilleures marques pour les meilleures boutiques.</p>
+            <p className="lead animate-fadein" style={{ animationDelay: '0.2s' }}>Retrouvez-les sur Faire !</p>
+          </div>
+          
+          <div className="d-flex flex-wrap justify-content-center animate-slideup">
+            {categories.map((category, index) => (
+              <button 
+                key={index}
+                className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(category)}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+          
+          {selectedCategory && (
+            <div className="products-grid mt-5">
+              <Row className="g-4 justify-content-center">
+                {bestSellers.map((product, i) => (
+                  <Col md="3" key={i} className="text-center animate-fadein" style={{ animationDelay: `${i * 0.15}s` }}>
+                    <div className="product-image-container">
+                      <img src={product.image} alt={product.name} className="product-img" />
+                    </div>
+                    <p className="product-name">{product.name}</p>
+                    <p className="product-detail">{product.detail}</p>
+                  </Col>
+                ))}
+              </Row>
+            </div>
+          )}
+        </Container>
+      </section>
+
+      {/* Best-Sellers Section */}
+      <section className="best-sellers py-6" style={{ backgroundColor: '#5b2a25' }}>
+        <Container>
+          <Row className="align-items-center">
+            <Col md="6">
+              <Row className="g-4">
+                {bestSellers.slice(0,4).map((product, i) => (
+                  <Col md="6" key={i} className="text-center">
+                    <div className="product-image-container animate-scalein" style={{ animationDelay: `${i * 0.15}s` }}>
+                      <img src={product.image} alt={product.name} className="product-img" />
+                    </div>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+            <Col md="6" className="text-white text-end">
+              <h2 className="section-title animate-fadein">Découvrez votre prochain best-seller</h2>
+              <p className="section-subtitle animate-fadein" style={{ animationDelay: '0.2s' }}>
+                Parcourez des produits que les commerçants du monde entier adorent sur Faire.
+              </p>
+              <button className="btn-cta animate-fadein" style={{ animationDelay: '0.3s' }}>Découvrir tous les best-sellers</button>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Values Section */}
+      <section className="values py-6 bg-white">
+        <Container>
+          <div className="text-center mb-4">
+            <h2 className="section-title animate-fadein">
+              Parcourez des produits selon les valeurs qui vous tiennent le plus à cœur
+            </h2>
+          </div>
+
+          <div className="d-flex flex-wrap justify-content-center mb-5">
+            {values.map((value, i) => (
+              <button 
+                key={i} 
+                className="value-btn animate-slidein"
+                style={{ animationDelay: `${i * 0.08}s` }}
+              >
+                {value}
+              </button>
+            ))}
+          </div>
+
+          <Row className="align-items-center">
+            <Col md="6" className="animate-slidein">
+              <img 
+                src="https://cdn.faire.com/fastly/6f174ccfd78008a0bf37fe8a7af31a8bf6a430b52f6acf75eef426258816441c.jpeg" 
+                alt="Bathing Culture" 
+                className="img-fluid rounded"
+              />
+            </Col>
+            <Col md="6" className="animate-fadein" style={{ animationDelay: '0.3s' }}>
+              <h3 className="brand-title">Bathing Culture</h3>
+              <p className="brand-location">San Francisco, Californie</p>
+              <blockquote className="brand-quote">
+                « Nous fabriquons chacun de nos produits en pensant à son impact carbone, son utilisation, 
+                sa réutilisation et sa fin de vie. Notre approche repose sur notre programme de recharge 
+                pour notre produit Mind and Body Wash, qui vous permet de recharger votre distributeur 
+                de savon dans plus de 200 magasins à travers le pays. »
+              </blockquote>
+              <button className="btn-cta">Acheter des produits écoresponsables</button>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Features Section */}
+      <section className="features py-6" style={{ backgroundColor: '#f1f29f' }}>
+        <Container>
+          <Row className="align-items-center">
+            <Col md="6" className="text-center animate-slidein">
+              <img 
+                src="https://cdn.faire.com/fastly/6f174ccfd78008a0bf37fe8a7af31a8bf6a430b52f6acf75eef426258816441c.jpeg" 
+                alt="Features" 
+                className="img-fluid rounded"
+              />
+            </Col>
+            <Col md="6" className="animate-slidein" style={{ animationDelay: '0.2s' }}>
+              <h2 className="section-title">Nous simplifions les choses.<br/>Vous vous les appropriez.</h2>
+              
+              <div className="feature-list">
+                {features.map((feature, i) => (
+                  <div 
+                    key={i} 
+                    className="feature-item animate-fadein"
+                    style={{ animationDelay: `${0.3 + i * 0.15}s` }}
+                  >
+                    <div className="feature-number">0{i+1}</div>
+                    <div>
+                      <h4 className="feature-title">{feature.title}</h4>
+                      {feature.desc && <p>{feature.desc}</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
     </div>
   );
+
 };
 
-const mapStateToProps = state => ({
-  products: state.products
-});
-
-export default connect(mapStateToProps, actions)(Homepage);
+export default Homepage;
